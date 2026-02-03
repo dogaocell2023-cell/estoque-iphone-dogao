@@ -30,3 +30,27 @@ button.danger{background:#ff3b30}
 .smallActions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .smallActions button{width:auto}
 .stats{color:var(--muted);font-size:13px;margin-bottom:10px}
+:root{
+  font-size: 18px; /* aumenta tudo */
+}
+
+body{
+  font-size: 1.15rem;
+}
+
+.topbar h1{
+  font-size: 1.4rem;
+}
+
+.card h2{
+  font-size: 1.2rem;
+}
+
+input, select, textarea, button{
+  font-size: 1.15rem;
+  padding: 14px 12px;
+}
+
+button{
+  font-weight: 700;
+}
