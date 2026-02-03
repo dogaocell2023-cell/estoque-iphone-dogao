@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estoque iPhone - Dogão</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#111111" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>📱 Estoque iPhone</h1>
+    <div class="actions">
+      <button id="btnExport">Exportar CSV</button>
+      <label class="fileBtn">
+        Importar CSV
+        <input id="fileImport" type="file" accept=".csv,text/csv" />
+      </label>
+      <button id="btnReset" class="danger">Zerar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>🔎 Buscar / Filtrar</h2>
+      <div class="row">
+        <input id="q" placeholder="Ex: iPhone 13, 128, azul..." />
+        <select id="filterStatus">
+          <option value="all">Todos</option>
+          <option value="estoque">Em estoque</option>
+          <option value="vendido">Vendido</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="card">
+        <h2>➕ Entrada (Cadastrar iPhone)</h2>
+        <form id="formEntrada" class="form">
+          <div class="row">
+            <input name="modelo" placeholder="Modelo (ex: iPhone 14 Pro)" required />
+            <input name="armazenamento" placeholder="GB (ex: 128)" required />
+          </div>
+          <div class="row">
+            <input name="cor" placeholder="Cor" />
+            <input name="bateria" placeholder="Bateria % (ex: 85)" inputmode="numeric" />
+          </div>
+          <div class="row">
+            <select name="faceid">
+              <option value="on">Face ID: ON</option>
+              <option value="off">Face ID: OFF</option>
+            </select>
+            <input name="imei" placeholder="IMEI/Serial (opcional)" />
+          </div>
+          <div class="row">
+            <input name="custo" placeholder="Custo (R$)" inputmode="decimal" />
+            <input name="preco" placeholder="Preço venda (R$)" inputmode="decimal" />
+          </div>
+          <textarea name="obs" placeholder="Observações"></textarea>
+          <button type="submit">Salvar entrada</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>📦 Estoque</h2>
+        <div id="stats" class="stats"></div>
+        <div id="lista" class="list"></div>
+      </section>
+    </section>
+
+    <section class="card">
+      <h2>➖ Saída (Registrar venda)</h2>
+      <form id="formSaida" class="form">
+        <div class="row">
+          <select id="saidaId" required></select>
+          <input name="cliente" placeholder="Cliente (ex: Tátia)" />
+        </div>
+        <div class="row">
+          <input name="valor" placeholder="Valor vendido (R$)" inputmode="decimal" required />
+          <select name="pagamento">
+            <option>Pix</option>
+            <option>Dinheiro</option>
+            <option>Cartão</option>
+            <option>Parcelado</option>
+          </select>
+        </div>
+        <textarea name="obsVenda" placeholder="Obs da venda (parcelas, garantia, troca, etc.)"></textarea>
+        <button type="submit" class="danger">Confirmar saída</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
